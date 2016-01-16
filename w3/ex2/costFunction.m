@@ -17,12 +17,12 @@ grad = zeros(size(theta));
 %               Compute the partial derivatives and set grad to the partial
 %               derivatives of the cost w.r.t. each parameter in theta
 %
-% Note: grad should have the same dimensions as theta
+% Note: grad shoul d have the same dimensions as theta
 %
-
-
-
-
+hx=sigmoid(X*theta);
+J=(-y'*log(hx)-(1-y)'*log(1-hx))/m;
+n=size(X,2);
+grad=sum( repmat((hx-y),1,n).*X)/m;
 
 
 
