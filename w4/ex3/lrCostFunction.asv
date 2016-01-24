@@ -35,14 +35,19 @@ grad = zeros(size(theta));
 %           temp(1) = 0;   % because we don't add anything for j = 0  
 %           grad = grad + YOUR_CODE_HERE (using the temp variable)
 %
+
 hx=sigmoid(X*theta);
-
 J=(-y'*log(hx)-(1-y)'*log(1-hx))/m;
-reg= lambda*sum(theta(2:end).^2);
-J=J+reg;
+n=size(X,2);
+grad=sum( repmat((hx-y),1,n).*X)/m;
 
-grad=sum( X' *(hx-y))/m;
-grad(2:end)=grad(2:end)+ (lambda*theta(2:end))/m;
+
+
+
+
+
+
+
 
 
 % =============================================================
