@@ -30,8 +30,11 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
-
-
+%hx:5000x10 : calc hx for each row of all_theta and considers the max value as most 
+%             likely calse 
+hx=X * all_theta'; %X:5000x401  all_theta:10*401 
+[maxValue, index] = max(hx, [], 2);
+p = index;
 
 
 
